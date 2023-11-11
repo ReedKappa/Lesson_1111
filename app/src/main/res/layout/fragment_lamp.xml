@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/operation_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/button_turn_on"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Включить"/>
+
+        <Button
+            android:id="@+id/button_turn_off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Выключить"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_change_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/operation_buttons"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Поменять цвет"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
