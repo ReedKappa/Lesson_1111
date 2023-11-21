@@ -2,6 +2,8 @@ package com.example.lesson_1111.di
 
 import com.example.lesson_1111.data.repository.SampleRepository
 import com.example.lesson_1111.data.repository.SampleRepositoryImpl
+import com.example.lesson_1111.domain.ChangeBrightnessUseCase
+import com.example.lesson_1111.domain.ChangeBrightnessUseCaseImpl
 import com.example.lesson_1111.domain.GetColorNamesUseCase
 import com.example.lesson_1111.domain.GetColorNamesUseCaseImpl
 import com.example.lesson_1111.domain.GetJokeUseCase
@@ -40,4 +42,7 @@ interface AppBindsModule {
 
     @Binds
     fun bindGetColorNamesUseCase(useCase: GetColorNamesUseCaseImpl): GetColorNamesUseCase
+
+    @Binds
+    fun bindChangeBrightnessUseCase(useCase: ChangeBrightnessUseCaseImpl): ChangeBrightnessUseCase
 }

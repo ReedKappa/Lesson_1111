@@ -16,7 +16,7 @@ class NetworkModule {
     fun provideLampService() : LampService =
         Retrofit.Builder()
             .client(OkHttpClient.Builder().addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)).build())
-            .baseUrl("http://192.168.88.176:8000/")
+            .baseUrl("http://195.54.14.121:8086/")
             .addConverterFactory(GsonConverterFactory.create())
             .build().create(LampService::class.java)
 
@@ -24,7 +24,7 @@ class NetworkModule {
     fun provideSampleService() : SampleService =
         Retrofit.Builder()
             .client(OkHttpClient.Builder().addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)).build())
-            .baseUrl("http://192.168.88.176:8000/")
+            .baseUrl("http://195.54.14.121:8086/")
             .addConverterFactory(GsonConverterFactory.create())
             .build().create(SampleService::class.java)
 

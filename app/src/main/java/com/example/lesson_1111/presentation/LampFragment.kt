@@ -12,6 +12,7 @@ import com.example.lesson_1111.databinding.FragmentLampBinding
 import com.example.lesson_1111.di.ViewModelFactory
 import com.example.lesson_1111.di.appComponent
 import javax.inject.Inject
+import kotlin.random.Random
 
 class LampFragment: Fragment(R.layout.fragment_lamp), View.OnClickListener {
     private val binding: FragmentLampBinding by viewBinding()
@@ -33,7 +34,7 @@ class LampFragment: Fragment(R.layout.fragment_lamp), View.OnClickListener {
         binding.buttonTurnOn.setOnClickListener(this)
         binding.buttonTurnOff.setOnClickListener(this)
         binding.buttonChangeColor.setOnClickListener(this)
-
+        binding.buttonChangeBrightness.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
@@ -49,6 +50,10 @@ class LampFragment: Fragment(R.layout.fragment_lamp), View.OnClickListener {
             }
             R.id.button_turn_off -> {
                 viewModel.turnLampOff()
+            }
+            R.id.button_change_brightness -> {
+                val brightnessValue = (1 .. 100).random()
+                viewModel.changeBrightness(brightnessValue)
             }
         }
     }

@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.lesson_1111.UiState
+import com.example.lesson_1111.domain.ChangeBrightnessUseCase
 import com.example.lesson_1111.domain.GetColorNamesUseCase
 import com.example.lesson_1111.domain.SetColorUseCase
 import com.example.lesson_1111.domain.TurnLampOffUseCase
@@ -17,7 +18,8 @@ class LampViewModel @Inject constructor(
     private val turnLampOnUseCase: TurnLampOnUseCase,
     private val turnLampOffUseCase: TurnLampOffUseCase,
     private val getColorNamesUseCase: GetColorNamesUseCase,
-    private val setColorUseCase: SetColorUseCase
+    private val setColorUseCase: SetColorUseCase,
+    private val changeBrightnessUseCase: ChangeBrightnessUseCase
 ): ViewModel() {
 
     private val _colorNames = MutableLiveData<UiState<List<String>>>()
@@ -55,6 +57,12 @@ class LampViewModel @Inject constructor(
     fun turnLampOff() {
         viewModelScope.launch {
             turnLampOffUseCase()
+        }
+    }
+
+    fun changeBrightness(brightnessValue: Int) {
+        viewModelScope.launch {
+            changeBrightnessUseCase(brightnessValue)
         }
     }
 }

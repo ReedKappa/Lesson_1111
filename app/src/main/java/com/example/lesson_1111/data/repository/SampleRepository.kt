@@ -15,6 +15,7 @@ interface SampleRepository {
     suspend fun turnLampOff(): Result<Boolean?>
     suspend fun getColorNames(): Result<List<String>?>
     suspend fun setColor(colorName: String): Result<Boolean?>
+    suspend fun changeBrightness(brightnessValue: Int): Result<Boolean?>
 }
 
 class SampleRepositoryImpl @Inject constructor(
@@ -78,6 +79,19 @@ class SampleRepositoryImpl @Inject constructor(
     override suspend fun setColor(colorName: String): Result<Boolean?> {
         runCatching {
             lampService.setColor(colorName)
+        }.fold(
+            onSuccess = {
+                return Result.success(it.body())
+            },
+            onFailure = {
+                return Result.failure(it)
+            }
+        )
+    }
+
+    override suspend fun changeBrightness(brightnessValue: Int): Result<Boolean?> {
+        runCatching {
+            lampService.changeBrightness(brightnessValue)
         }.fold(
             onSuccess = {
                 return Result.success(it.body())

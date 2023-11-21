@@ -18,4 +18,7 @@ interface LampService {
     @POST("color/")
     suspend fun setColor(@Query("color") colorName: String): Response<Boolean>
 
+    @POST("brightness/")
+    suspend fun changeBrightness(@Query("level") brightnessValue: Int): Response<Boolean>
+
 }
