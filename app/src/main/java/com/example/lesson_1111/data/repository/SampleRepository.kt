@@ -2,8 +2,8 @@ package com.example.lesson_1111.data.repository
 
 import com.example.lesson_1111.data.api.LampService
 import com.example.lesson_1111.data.api.SampleService
+import com.example.lesson_1111.data.module.CurrentColorModel
 import com.example.lesson_1111.data.module.Joke
-import com.example.lesson_1111.domain.TurnLampOnUseCase
 import retrofit2.HttpException
 import retrofit2.Response
 import javax.inject.Inject
@@ -16,6 +16,9 @@ interface SampleRepository {
     suspend fun getColorNames(): Result<List<String>?>
     suspend fun setColor(colorName: String): Result<Boolean?>
     suspend fun changeBrightness(brightnessValue: Int): Result<Boolean?>
+    suspend fun getBulbState(): Result<Boolean?>
+    suspend fun getCurrentBrightnessLevel(): Result<Int?>
+    suspend fun getCurrentColor(): Result<CurrentColorModel?>
 }
 
 class SampleRepositoryImpl @Inject constructor(
@@ -102,7 +105,28 @@ class SampleRepositoryImpl @Inject constructor(
         )
     }
 
+    override suspend fun getBulbState(): Result<Boolean?> {
+        kotlin.runCatching {
+            lampService.getBulbState()
+        }.fold(
+            onSuccess = {
+                return Result.success(it.body())
+            },
+            onFailure = {
+                return Result.failure(it)
+            }
+        )
+    }
 
+    override suspend fun getCurrentBrightnessLevel(): Result<Int?> =
+        convertToResult {
+            lampService.getCurrentBrightnessLevel()
+        }
+
+    override suspend fun getCurrentColor(): Result<CurrentColorModel?> =
+        convertToResult {
+            lampService.getCurrentColor()
+        }
 }
 
 suspend fun <T> convertToResult(func: suspend () -> Response<T>): Result<T?> {

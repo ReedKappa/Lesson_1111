@@ -1,8 +1,9 @@
-package com.example.lesson_1111.presentation
+package com.example.lesson_1111.presentation.lamp
 
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -12,7 +13,6 @@ import com.example.lesson_1111.databinding.FragmentLampBinding
 import com.example.lesson_1111.di.ViewModelFactory
 import com.example.lesson_1111.di.appComponent
 import javax.inject.Inject
-import kotlin.random.Random
 
 class LampFragment: Fragment(R.layout.fragment_lamp), View.OnClickListener {
     private val binding: FragmentLampBinding by viewBinding()
@@ -21,6 +21,7 @@ class LampFragment: Fragment(R.layout.fragment_lamp), View.OnClickListener {
     lateinit var viewModelFactory: ViewModelFactory
 
     private val viewModel: LampViewModel by viewModels() {viewModelFactory}
+
 
     override fun onAttach(context: Context) {
         context.appComponent.inject(this)

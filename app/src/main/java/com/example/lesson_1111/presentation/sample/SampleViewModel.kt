@@ -1,12 +1,10 @@
-package com.example.lesson_1111.presentation
+package com.example.lesson_1111.presentation.sample
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.lesson_1111.UiState
-import com.example.lesson_1111.data.api.SampleService
 import com.example.lesson_1111.domain.GetJokesCategoriesUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package com.example.lesson_1111.presentation
+package com.example.lesson_1111.presentation.sample
 
 import android.view.ViewGroup
 import android.widget.TextView

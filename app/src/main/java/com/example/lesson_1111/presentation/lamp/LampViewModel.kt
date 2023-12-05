@@ -1,4 +1,4 @@
-package com.example.lesson_1111.presentation
+package com.example.lesson_1111.presentation.lamp
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,7 +12,6 @@ import com.example.lesson_1111.domain.TurnLampOffUseCase
 import com.example.lesson_1111.domain.TurnLampOnUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import kotlin.random.Random
 
 class LampViewModel @Inject constructor(
     private val turnLampOnUseCase: TurnLampOnUseCase,

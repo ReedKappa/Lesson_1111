@@ -2,14 +2,18 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_nav_graph"
-    app:startDestination="@id/lampFragment">
+    app:startDestination="@id/bulbFragment">
 
     <fragment
         android:id="@+id/sampleFragment"
-        android:name="com.example.lesson_1111.presentation.SampleFragment"
+        android:name="com.example.lesson_1111.presentation.sample.SampleFragment"
         android:label="SampleFragment" />
     <fragment
         android:id="@+id/lampFragment"
-        android:name="com.example.lesson_1111.presentation.LampFragment"
+        android:name="com.example.lesson_1111.presentation.lamp.LampFragment"
         android:label="LampFragment" />
+    <fragment
+        android:id="@+id/bulbFragment"
+        android:name="com.example.lesson_1111.presentation.bulb.BulbFragment"
+        android:label="BulbFragment" />
 </navigation>

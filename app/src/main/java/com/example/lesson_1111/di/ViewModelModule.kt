@@ -2,8 +2,9 @@ package com.example.lesson_1111.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.lesson_1111.presentation.LampViewModel
-import com.example.lesson_1111.presentation.SampleViewModel
+import com.example.lesson_1111.presentation.bulb.BulbViewModel
+import com.example.lesson_1111.presentation.lamp.LampViewModel
+import com.example.lesson_1111.presentation.sample.SampleViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -22,5 +23,10 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(LampViewModel::class)
     abstract fun bindLampViewModel(viewModel: LampViewModel) : ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(BulbViewModel::class)
+    abstract fun bindBulbViewModel(viewModel: BulbViewModel) : ViewModel
 
 }
